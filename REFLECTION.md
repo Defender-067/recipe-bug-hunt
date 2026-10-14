@@ -1,16 +1,16 @@
 # Lab 7 Exercise 2 Reflection - Git Bisect
 
-### 1. How many times did you have to check the temperature before Git found the bug?
-- I checked the temperature 3 times (Commit 4, Commit 6, and Commit 5) before Git pinpointed the exact commit.
+1. How many times did you check the temperature before Git found the bug?
+   - Checked 3 times (Commit 4, Commit 6, Commit 5) before finding the bug.
 
-### 2. If you had 100 commits instead of 7, about how many checks would bisect need?
-- Binary search uses log2(N). For 100 commits, Git bisect would only need about 7 checks (2^7 = 128).
+2. If you had 100 commits instead of 7, how many checks would bisect need?
+   - Binary search needs log2(100), which is roughly 7 checks.
 
-### 3. How is bisect different from manually checking each commit with git checkout?
-- Manual checking requires reviewing commits one by one sequentially. `git bisect` cuts the search area in half at every step, saving significant time.
+3. How is bisect different from manually checking each commit?
+   - Manual checkout takes linear time O(N), while bisect takes logarithmic time O(log N).
 
-### 4. When would git bisect be most useful in real projects?
-- It is most useful in large codebases with long commit histories where a bug or regression was introduced silently at an unknown time.
+4. When is git bisect most useful?
+   - Finding silent bugs introduced deep in large commit histories.
 
-### 5. What information do you need to start a bisect session?
-- You need a known bad state (usually current HEAD) and at least one known good commit in the past where the bug did not exist.
+5. What information do you need to start a bisect session?
+   - A known bad commit (current HEAD) and a known good commit from the past.
